@@ -1,4 +1,4 @@
-import { ProductCategory } from "../enums/index";
+import { ProductCategory } from "./enums/index";
 
 export class Product {
   constructor(public name: string,
