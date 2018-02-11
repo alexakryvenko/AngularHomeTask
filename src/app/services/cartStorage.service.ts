@@ -10,7 +10,7 @@ const cartItemsPromise = Promise.resolve(cartItems);
 @Injectable()
 export class CartStorageService {
 
-  getCurrentCart(): Promise<Product[]> {
+  getCurrentCart(): Promise <Product[]> {
     return cartItemsPromise;
   }
 
@@ -30,10 +30,15 @@ export class CartStorageService {
     }
   }
 
-  updateAmount(productId: number,  amountDelta: number): void {
+  updateAmount(productId: number, amountDelta: number): void {
     const i = cartItems.findIndex(p => p.id === productId);
     if (i > -1) {
       cartItems[i].amount += amountDelta;
     }
   }
+
+  clearCart() {
+    cartItems.splice(0, cartItems.length);
+  }
 }
+

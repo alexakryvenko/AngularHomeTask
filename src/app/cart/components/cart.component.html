@@ -1,6 +1,6 @@
 <div *ngIf="isAny">
   <p>
-    Cart
+    Cart <button (click)="onClearCart()">Clear cart</button>
   </p>
   <div *ngFor="let p of items">
     <app-cart-item [product] = "p" (amountChange) = "onAmountChange(p, $event)"></app-cart-item>
@@ -9,4 +9,5 @@
     <button (click) = "removeProduct(p)">X</button>
   </div>
   Total : ({{totalCount}}) {{total}}$
+
 </div>

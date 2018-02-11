@@ -63,6 +63,10 @@ export class CartComponent implements AfterViewInit {
     });
   }
 
+  onClearCart() {
+    this.itemChanged.emit({ product: null, action: CartAction.ClearCart});
+  }
+
   childrenLog(r: any) {
     setTimeout(() => {
       console.log("Selected items:" + r.map(i => i.product.name).join(", "));

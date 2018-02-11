@@ -16,10 +16,6 @@ export class AppComponent {
               private productStorage: ProductStorageService) {
   }
 
-  @HostListener("wheel") onWheel() {
-    console.log("WHEEEEEEELLL");
-  }
-
   get cartItems() {
     return this.cartStorage.getCurrentCart();
   }
@@ -46,6 +42,8 @@ export class AppComponent {
           this.cartStorage.removeProduct(event.product.id);
           this.productStorage.updateProductAmount(event.product.id, event.product.amount);
       }
+      break;
+      case CartAction.ClearCart: this.cartStorage.clearCart();
       break;
     }
   }

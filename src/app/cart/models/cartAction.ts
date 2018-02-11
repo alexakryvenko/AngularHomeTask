@@ -1,5 +1,6 @@
 export enum CartAction {
   IncreaseAmount,
   DecreaseAmount,
-  RemoveFromCart
+  RemoveFromCart,
+  ClearCart
 }
