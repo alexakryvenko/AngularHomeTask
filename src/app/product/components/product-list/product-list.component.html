@@ -1,3 +1,4 @@
 <div *ngFor="let p of products">
     <app-product [product]="p"></app-product>
+    <button (click)="addToCart(p)">Add to cart</button>
 </div>

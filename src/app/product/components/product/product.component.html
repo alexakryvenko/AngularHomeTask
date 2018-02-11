@@ -1,9 +1,9 @@
 <div class="app-product-container">
-  <h1>{{product.name}}</h1>
-  <p>{{product.description}}</p>
-  <p>Price: {{product.price}}</p>
-  <p>Category: {{product.category.toString()}}</p>
-  <p>isAvailable: {{isAvailable ? "yes": "no"}}</p>
+  <h4>{{product.name}}</h4>
+  <span>{{product.description}}</span>
+  <span>Price: {{product.price}}</span>
+  <span>Category: {{product.category.toString()}}</span>
+  <span>isAvailable: {{isAvailable ? "yes": "no"}}</span><span>{{ product.amount }}</span>
   <div *ngIf="product.ingredients">
     Ingredients
     <ul *ngFor="let i of product.ingredients">

@@ -1,5 +1,4 @@
 <div>
-  <app-cart></app-cart>
-  <button (click)="onBuy()">Buy product</button>
-  <app-product-list></app-product-list>
+  <app-cart [items] = "cartItems | async" (itemChanged) = "onCartChanges($event)"></app-cart>
+  <app-product-list [products] = "products | async" (buyProduct) = "onBuyProduct($event)"></app-product-list>
 </div>

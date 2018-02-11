@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { Input } from "@angular/core/src/metadata/directives";
+import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
 import { CartService } from "../services/index";
 import { Product } from "../../product";
+import { CartEvent, CartAction } from "../cartEvent";
+import { Predicate } from "@angular/core/src/debug/debug_node";
 
 @Component({
   selector: "app-cart",
@@ -10,16 +11,32 @@ import { Product } from "../../product";
 })
 export class CartComponent implements OnInit {
 
-  products: Product[] = [];
-
   constructor(private cartService: CartService) { }
 
+  @Output() itemChanged = new EventEmitter<CartEvent>();
+  @Input() items: Product[];
+
   ngOnInit() {
-    this.products = this.cartService.getProductsInCart();
   }
 
   get isAny(): boolean {
-    return this.products && this.products.length > 0;
+    return this.items && this.items.length > 0;
+  }
+
+  addAmount(p: Product) {
+    this.itemChanged.emit({product: p, action: CartAction.IncreaseAmount});
+  }
+
+  removeAmount(p: Product) {
+    if (p.amount === 1) {
+      this.removeProduct(p);
+    } else {
+      this.itemChanged.emit({product: p, action: CartAction.DecreaseAmount});
+    }
+  }
+
+  removeProduct(p: Product) {
+    this.itemChanged.emit({product: p, action: CartAction.RemoveFromCart});
   }
 
 }
