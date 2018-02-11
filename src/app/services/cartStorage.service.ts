@@ -3,7 +3,7 @@ import { Subject } from "rxjs/Subject";
 import { Product } from "../product";
 import { ProductCategory } from "../enums/index";
 
-const cartItems: Array<Product> = [new Product(5, "Water", "water descr", 500, ProductCategory.Drinks, 1, null, ["water"])];
+const cartItems: Array<Product> = [new Product(3, "Water", "water descr", 500, ProductCategory.Drinks, 1, null, ["water"])];
 
 const cartItemsPromise = Promise.resolve(cartItems);
 
