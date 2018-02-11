@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, HostListener } from "@angular/core";
 import { Product } from "./product";
 import { CartStorageService } from "./services/cartStorage.service";
-import { ProductStorageService } from "./services/storage.service";
-import { CartEvent, CartAction } from "./cart/cartEvent";
+import { ProductStorageService } from "./services/ProductStorage.service";
+import { CartEvent, CartAction } from "./cart/models";
 
 @Component({
   selector: "app-root",
@@ -12,10 +12,12 @@ import { CartEvent, CartAction } from "./cart/cartEvent";
 export class AppComponent {
   title = "app";
 
-//  cartItems: Product[] = [];
-
   constructor(private cartStorage: CartStorageService,
               private productStorage: ProductStorageService) {
+  }
+
+  @HostListener("wheel") onWheel() {
+    console.log("WHEEEEEEELLL");
   }
 
   get cartItems() {

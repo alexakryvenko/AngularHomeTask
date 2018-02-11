@@ -2,10 +2,11 @@
   <p>
     Cart
   </p>
-  <ul *ngFor="let p of items">
+  <div *ngFor="let p of items">
     <app-cart-item [product] = "p" (amountChange) = "onAmountChange(p, $event)"></app-cart-item>
     <button (click) = "removeAmount(p)">-</button>
     <button (click) = "addAmount(p)">+</button>
     <button (click) = "removeProduct(p)">X</button>
-  </ul>
+  </div>
+  Total : ({{totalCount}}) {{total}}$
 </div>

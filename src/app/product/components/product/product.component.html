@@ -1,9 +1,9 @@
-<div class="app-product-container">
-  <h4>{{product.name}}</h4>
-  <span>{{product.description}}</span>
-  <span>Price: {{product.price}}</span>
-  <span>Category: {{product.category.toString()}}</span>
-  <span>isAvailable: {{isAvailable ? "yes": "no"}}</span><span>{{ product.amount }}</span>
+<div class="app-product-container" [ngClass] = "{'not-available' : !isAvailable}">
+  <h2>{{product.name}}</h2>
+  <div>{{product.description}}</div>
+  <div><b>Price:</b> {{product.price}}</div>
+  <div><b>Category:</b>{{product.category.toString()}}</div>
+  <div><b>isAvailable:</b> {{isAvailable ? "yes": "no"}} ({{product.amount}})</div>
   <div *ngIf="product.ingredients">
     Ingredients
     <ul *ngFor="let i of product.ingredients">

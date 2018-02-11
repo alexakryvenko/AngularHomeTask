@@ -1,4 +1,4 @@
 <div *ngFor="let p of products">
-    <app-product [product]="p"></app-product>
-    <button (click)="addToCart(p)">Add to cart</button>
+    <app-product #item [product]="p"></app-product>
+    <button (click)="addToCart(p)" [disabled] = "!item.isAvailable">Add to cart</button>
 </div>

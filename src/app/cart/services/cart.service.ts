@@ -7,9 +7,19 @@ export class CartService {
 
   constructor() { }
 
-  getProductsInCart(): Product[] {
-    return [new Product(1, "Book1", "book descr", 500, ProductCategory.Books, 1000, null, ["Book2", "Book3"]),
-            new Product(2, "Water", "water descr", 500, ProductCategory.Drinks, 12, null, ["water"])];
+  calculateTotalAmount(products: Product[]): number {
+    let sum = 0;
+    products.forEach(p => {
+      sum += p.amount;
+    });
+    return sum;
   }
 
+  calculateTotalPrice(products: Product[]): number {
+    let sum = 0;
+    products.forEach(p => {
+      sum += p.amount * p.price;
+    });
+    return sum;
+  }
 }

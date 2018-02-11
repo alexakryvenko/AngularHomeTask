@@ -14,12 +14,6 @@ export class CartStorageService {
     return cartItemsPromise;
   }
 
-  // getCartItem(id: number | string): Promise<Product> {
-  //   return this.getCurrentCart()
-  //     .then(items => items.find(p => p.id === id))
-  //     .catch(() => Promise.reject("Error"));
-  // }
-
   addProduct(product: Product): void {
     const i = cartItems.findIndex(t => t.id === product.id);
     if (i > -1) {
