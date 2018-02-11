@@ -1,19 +1,38 @@
-import { Component, HostListener } from "@angular/core";
+import { Component, HostListener, OnInit, Inject, Optional } from "@angular/core";
 import { Product } from "./product";
-import { CartStorageService } from "./services/cartStorage.service";
-import { ProductStorageService } from "./services/ProductStorage.service";
+import { CartStorageService, ProductStorageService, LocalStorageService, APP_CONFIG, AppConfig, GeneratorService, ConfigOptionsService } from "./services";
 import { CartEvent, CartAction } from "./cart/models";
+
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = "app";
+  str =  "";
 
   constructor(private cartStorage: CartStorageService,
-              private productStorage: ProductStorageService) {
+    private productStorage: ProductStorageService,
+    @Optional() private localStorageService: LocalStorageService,
+    @Inject(APP_CONFIG) appConfig: AppConfig,
+    @Optional() private generatorService: GeneratorService,
+    @Optional() private configOptionsService: ConfigOptionsService,) {
+      console.log(appConfig);
+    }
+
+  ngOnInit(): void {
+    if (!this.localStorageService.getItem("A1")) {
+      this.localStorageService.setItem("A1", "Type1");
+      console.log("Set A1");
+    }
+    // this.localStorageService.removeItem("A1");
+    this.str = this.generatorService.generate();
+  }
+
+  generateRandomStr() {
+    this.str = this.generatorService.generate();
   }
 
   get cartItems() {
@@ -43,7 +62,10 @@ export class AppComponent {
           this.productStorage.updateProductAmount(event.product.id, event.product.amount);
       }
       break;
-      case CartAction.ClearCart: this.cartStorage.clearCart();
+      case CartAction.ClearCart: {
+        this.cartStorage.clearCart();
+        this.localStorageService.removeItem("A1");
+      }
       break;
     }
   }
