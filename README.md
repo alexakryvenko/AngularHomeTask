@@ -1,4 +1,10 @@
 # Shop
 
-Products in cart with cost that exceeds 1000$ will be marked with border.
-Click on cart item will make it selected and cart  will print all selected to console. 
+Service for storage products named as product-storage.service.ts
+Service for storage cart-items named as cart-storage.service.ts
+cart.service calculates price and totals 
+
+Click on Generate button will change random string.
+Local storage service outputs to console on init.
+Click on Generate button will add border to it with directive.
+Click on Random string heading will add border to it with directive.  
