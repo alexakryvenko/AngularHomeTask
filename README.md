@@ -1,10 +1,10 @@
 # Shop
 
-Service for storage products named as product-storage.service.ts
-Service for storage cart-items named as cart-storage.service.ts
-cart.service calculates price and totals 
+Currency pipe is used for Total price in cart, Product price in cart and product price in list.
+Uppercase pipe is used on Product component for category
+Date pipe is used for Modification date on top
 
-Click on Generate button will change random string.
-Local storage service outputs to console on init.
-Click on Generate button will add border to it with directive.
-Click on Random string heading will add border to it with directive.  
+Async pipe is used in app.component
+
+
+Order pipe is used in car-list.component

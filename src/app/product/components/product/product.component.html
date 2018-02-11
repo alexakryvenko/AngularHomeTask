@@ -1,8 +1,8 @@
 <div class="app-product-container" [ngClass] = "{'not-available' : !isAvailable}">
   <h2>{{product.name}}</h2>
   <div>{{product.description}}</div>
-  <div><b>Price:</b> {{product.price}}</div>
-  <div><b>Category:</b>{{product.category.toString()}}</div>
+  <div><b>Price:</b> {{product.price | currency:'EUR':'symbol':'1.0-2'}}</div>
+  <div><b>Category:</b>{{getCategory(product.category) | uppercase}}</div>
   <div><b>isAvailable:</b> {{isAvailable ? "yes": "no"}} ({{product.amount}})</div>
   <div *ngIf="product.ingredients">
     Ingredients

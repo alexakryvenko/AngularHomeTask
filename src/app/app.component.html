@@ -1,5 +1,6 @@
 <h1 appBorderClick [color]="'darkorange'">Random string: {{str}}</h1>
 <button (click) = "generateRandomStr()" appBorderClick [color]="'slateblue'">Generate</button>
+<p>Modification date: {{modificationDate | date:"MM/dd/yy"}}</p>
 <div>
   <app-cart [items] = "cartItems | async" (itemChanged) = "onCartChanges($event)"></app-cart>
   <app-product-list [products] = "products | async" (buyProduct) = "onBuyProduct($event)"></app-product-list>

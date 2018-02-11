@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit, Inject, Optional } from "@angular/core";
 import { Product } from "./product";
-import { CartStorageService, ProductStorageService, LocalStorageService, APP_CONFIG, AppConfig, GeneratorService, ConfigOptionsService } from "./services";
+import { CartStorageService, ProductStorageService, LocalStorageService, APP_CONFIG, AppConfig,
+  GeneratorService, ConfigOptionsService } from "./services";
 import { CartEvent, CartAction } from "./cart/models";
 
 
@@ -12,6 +13,7 @@ import { CartEvent, CartAction } from "./cart/models";
 export class AppComponent implements OnInit {
   title = "app";
   str =  "";
+  modificationDate = new Date(2018, 2, 12);
 
   constructor(private cartStorage: CartStorageService,
     private productStorage: ProductStorageService,
