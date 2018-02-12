@@ -1,4 +1,8 @@
-<div *ngFor="let p of products">
+Order by:
+<button (click) = "orderBy('name')">Name</button>
+<button (click) = "orderBy('price')">Price</button>
+<button (click) = "orderBy('amount')">Amount</button>
+<div *ngFor="let p of products | orderBy:orderStr:false">
     <app-product #item [product]="p"></app-product>
     <button (click)="addToCart(p)" [disabled] = "!item.isAvailable">Add to cart</button>
 </div>

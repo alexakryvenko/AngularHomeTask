@@ -2,9 +2,8 @@
   <p>
     Cart <button (click)="onClearCart()">Clear cart</button>
   </p>
-<button (click) = "orderBy('name')">Name</button>
-<button (click) = "orderBy('price')">Price</button>
-  <div *ngFor="let p of items | orderBy:orderStr:true">
+
+  <div *ngFor="let p of items">
     <app-cart-item [product] = "p" (amountChange) = "onAmountChange(p, $event)"></app-cart-item>
     <button (click) = "removeAmount(p)">-</button>
     <button (click) = "addAmount(p)">+</button>

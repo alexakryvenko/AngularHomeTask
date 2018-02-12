@@ -9,6 +9,8 @@ import { Product } from "../../../product";
 export class ProductListComponent implements OnInit {
   constructor() { }
 
+  orderStr = "name";
+
   @Input()
   products: Product[] = [];
 
@@ -22,4 +24,7 @@ export class ProductListComponent implements OnInit {
     this.buyProduct.emit(event);
   }
 
+  orderBy(field: string) {
+    this.orderStr = field;
+  }
 }

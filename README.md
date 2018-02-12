@@ -6,5 +6,4 @@ Date pipe is used for Modification date on top
 
 Async pipe is used in app.component
 
-
-Order pipe is used in car-list.component
+Order pipe is used in product-list.component

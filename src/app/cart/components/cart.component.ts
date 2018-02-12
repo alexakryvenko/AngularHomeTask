@@ -10,8 +10,6 @@ import { CartItemComponent } from "./cart-item/cart-item.component";
   styleUrls: ["./cart.component.css"]
 })
 export class CartComponent implements AfterViewInit {
-
-  orderStr = "name";
   constructor(private cartService: CartService) {}
 
   @Output() itemChanged = new EventEmitter <CartEvent> ();
@@ -73,10 +71,5 @@ export class CartComponent implements AfterViewInit {
       console.log("Selected items:" + r.map(i => i.product.name).join(", "));
     }, 0);
   }
-
-  orderBy(field: string) {
-    this.orderStr = field;
-  }
-
 }
 
